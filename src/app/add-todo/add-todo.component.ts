@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoModel } from './TodoModel'
+import { TodoModel } from '../TodoModel'
 import { TodoServiceService } from '../todo-service.service';
 import { NgModel } from '@angular/forms';
 import { NavigationExtras } from '@angular/router';
@@ -19,11 +19,17 @@ export class AddTodoComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-      console.log("hola");
   }
 
   private onSubmit(){
-    this.searchService.addTodoSingle(this.todoModel);
-    this.router.navigate(['/']);
+    this.searchService.addTodoSingle(this.todoModel)
+    .subscribe(data => {
+      console.log(data);
+      if (data.status == 200)
+      {
+        console.log("Todo bien")
+        this.router.navigate(['/']); // ON SUCCESS
+      }
+    });
   }
 }

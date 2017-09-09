@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <h1>Edit Single Todo</h1>
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+<form (ngSubmit)="onSubmit()" #todoForm="ngForm" action="/">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control"  placeholder="Enter title" [ngModel]="data?.titulo" (ngModelChange)="data.titulo=$event"
+          name="titulo">    
+      </div>
+      <div class="form-group">
+        <label>Task</label>
+        <input type="text" class="form-control"  placeholder="Enter task" [ngModel]="data?.tareas" (ngModelChange)="data.tareas=$event"
+        name="tareas">    
+      </div>
+      <div class="form-group">
+        <label>Complete</label>
+        <select class="form-control" [ngModel]="data?.IsComplete" (ngModelChange)="data.IsComplete=$event" name="IsComplete">
+          <option value=true>Yes</option>
+          <option value=false>No</option>
+        </select>
+      </div>  
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+</div>

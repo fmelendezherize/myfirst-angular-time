@@ -9,11 +9,13 @@ import { HomeComponent } from './home/home.component';
 import { TodoServiceService } from './todo-service.service';
 import { SingleTodoComponent } from './single-todo/single-todo.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
+import { EditTodoComponent } from './edit-todo/edit-todo.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'single-todo/:id', component: SingleTodoComponent },
   { path: 'add-todo', component: AddTodoComponent },
+  { path: 'edit-todo/:id', component: EditTodoComponent },
 ];
 
 @NgModule({
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     SingleTodoComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    EditTodoComponent
   ],
   imports: [
     FormsModule,

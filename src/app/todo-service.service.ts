@@ -30,10 +30,24 @@ export class TodoServiceService {
    addTodoSingle(body:any){
       console.log(body);
       let url = `${this.getUrl}`
-      return this.http.post(url, body).
-        subscribe()
+      return this.http.post(url, body)
    }
-    
+   
+   deleteTodoSingle(id:number){
+    if (id) {
+      let url = `${this.getUrl}${id}`;
+      console.log(url);
+      return this.http.delete(url);
+      }
+   }
+
+   updateTodoSingle(id:number, body:any){
+      console.log(body);
+      let url = `${this.getUrl}${id}`;
+      return this.http.put(url, body).
+        catch(this.handleError);
+   }
+
     private handleError(error: Response | any) {
       // In a real world app, you might use a remote logging infrastructure
       let errMsg: string;
